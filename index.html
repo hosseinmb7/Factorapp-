@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>فاکتور ساز</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="menu" id="menu">
+    <button class="active" data-section="invoice">فاکتور📋</button>
+    <button data-section="customers">اشخاص👥</button>
+    <button data-section="products">کالا🐟</button>
+    <button data-section="reports">گزارشات🧾</button>
+    <button data-section="backup">بکاپ💾</button>
+    <button data-section="about">درباره❕</button>
+    <label style="margin-right:8px">تم:
+      <select id="themeSelect">
+        <option value="">پیش‌فرض</option>
+        <option value="theme-bluegrey">آبی-خاکستری</option>
+        <option value="theme-blue">آبی</option>
+        <option value="theme-green">سبز</option>
+        <option value="theme-dark">تاریک</option>
+      </select>
+    </label>
+    <button id="denseToggle">🔍 فشرده</button>
+  </div>
+
+  <div class="card selectable" id="content">
+    <p>خوش آمدید 🌟 از منو بالا یک بخش را انتخاب کنید.</p>
+  </div>
+
+  <!-- Invoice Popup -->
+  <div id="invoicePopup">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <strong>پیش‌نمایش فاکتور</strong>
+        <button class="btn secondary" id="closePopupBtn">بستن ✖</button>
+      </div>
+      <div class="popup-content">
+        <div id="invoiceDisplay"></div>
+      </div>
+      <div class="popup-actions">
+        <button class="btn" id="copyInvoiceBtn">کپی متن</button>
+        <button class="btn" id="printInvoiceBtn">چاپ</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .catch(err => console.error('SW registration failed:', err));
+    }
+  </script>
+</body>
+</html>
