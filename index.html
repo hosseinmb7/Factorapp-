@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>فاکتور ساز</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- اضافه شده برای PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
 </head>
 <body>
   <div class="menu" id="menu">
@@ -50,7 +54,8 @@
   <script src="main.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log("Service Worker Registered"))
         .catch(err => console.error('SW registration failed:', err));
     }
   </script>
